@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  db:
+    image: mysql
+    container_name: web_hackaton_dev_db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-super-secret-pw
+      - MYSQL_DATABASE=hackaton
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=secret-pw
+    ports:
+      - "3306:3306"
+
+  api:
+    image: web_hackaton_dev_api
+    container_name: web_hackaton_dev_api
+    build: ./api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../..:/app
+    env_file:
+      - ./docker-compose.env
+    depends_on:
+      - db
+    command: sleep infinity
+
+networks:
+  default:
+    name: web_hackaton_backend_dev
