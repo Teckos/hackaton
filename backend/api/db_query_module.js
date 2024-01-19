@@ -1,20 +1,19 @@
 const db = require('./db_con_module');
-// const selectAll = "SELECT * FROM test";
-// const selectById = (id)=>{return "SELECT * FROM test WHERE id ="+id};
-const testQuery = async (query) => {
+const executeQuery = async (sqlQuery) => {
+    const con = await db.myCon();
     try {
-        const con = await db.myCon();
+
         await con.connect();
-        const [result] = await con.query(query);
+        const [result] = await con.query(sqlQuery);
         console.log("Result: ", result);
         return result;
     } catch (err) {
         console.error('Error:', err);
         throw err;
     }
+    finally {
+        if (con) await con.end();
+    }
 };
-exports.testQuery = testQuery();
-// testQuery(selectAll);
-// testQuery(selectById(2));
-
+exports.executeQuery = executeQuery;
 

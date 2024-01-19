@@ -21,8 +21,6 @@ services:
       - "3000:3000"
     volumes:
       - ../..:/app
-    env_file:
-      - ./docker-compose.env
     depends_on:
       - db
     command: sleep infinity

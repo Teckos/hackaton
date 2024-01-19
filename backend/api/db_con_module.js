@@ -4,7 +4,7 @@ exports.myCon = async ()=>{
     const con = await mysql.createConnection({
         host: "db",
         user: "user",
-        password: "secret-p",
+        password: "secret-pw",
         database: "hackaton",
         port: 3306
     });

@@ -1,18 +1,17 @@
 const db = require('./db_con_module');
-const executeQuery = async (sqlQuery) => {
+const executeQuery = async (sqlQuery, values) => {
+    const con = await db.myCon();
     try {
-        const con = await db.myCon();
         await con.connect();
-        const [result] = await con.query(sqlQuery);
-        console.log("Result: ", result);
-        return result;
+        const [rows, fields] = await con.execute(sqlQuery, values);
+        console.log("Result: ", rows);
+        return rows;
     } catch (err) {
         console.error('Error:', err);
         throw err;
+    } finally {
+        if (con) await con.end();
     }
-    // finally {
-    //     if (con) await con.end();
-    // }
 };
 exports.executeQuery = executeQuery;
 

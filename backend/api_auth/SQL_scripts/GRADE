@@ -1,0 +1,50 @@
+CREATE TABLE hackaton.`grade` (
+	id INT auto_increment NOT NULL PRIMARY KEY,
+	name varchar(100) NOT NULL,
+	adult bool NOT NULL DEFAULT false,
+	belt varchar(100) NOT NULL
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
+
+
+INSERT INTO hackaton.`grade` (`name`,`adult`,`belt`) 
+VALUES 
+('15eme Keup', 0, 'Blanche'),
+('14eme Keup', 0, 'Jaune'),
+('13eme Keup', 0, 'Jaune barrette orange'),
+('12eme Keup', 0, 'Orange'),
+('11eme Keup', 0, 'Orange barrette verte'),
+('10eme Keup', 0, 'Verte'),
+('9eme Keup', 0, 'Verte barrette violette'),
+('9eme Keup', 0, 'Violette'),
+('7eme Keup', 0, 'Violette barrette bleue'),
+('6eme Keup', 0, 'Bleue'),
+('5eme Keup', 0, 'Bleue 1 barrette rouge'),
+('4eme Keup', 0, 'Bleue 2 barrettes rouges'),
+('3eme Keup', 0, 'Rouge'),
+('2eme Keup', 0, 'Rouge 1 barrette noire'),
+('1er Keup', 0, 'Rouge 2 barrettes noires'),
+('1er Dan', 0, 'Rouge-Noire'),
+
+('10eme Keup', 1, 'Blanche'),
+('9eme Keup', 1, 'Jaune'),
+('9eme Keup', 1, 'Jaune 1 barrette bleue'),
+('7eme Keup', 1, 'Jaune 2 barrettes bleues'),
+('6eme Keup', 1, 'Bleue'),
+('5eme Keup', 1, 'Bleue 1 barrette rouge'),
+('4eme Keup', 1, 'Bleue 2 barrettes rouges'),
+('3eme Keup', 1, 'Rouge'),
+('2eme Keup', 1, 'Rouge 1 barrette noire'),
+('1er Keup', 1, 'Rouge 2 barrettes noires'),
+('1er Dan', 1, 'Noire 1 barrette or'),
+('2eme Dan', 1, 'Noire 2 barrettes or'),
+('3eme Dan', 1, 'Noire 3 barrettes or'),
+('4eme Dan', 1, 'Noire 4 barrettes or'),
+('5eme Dan', 1, 'Noire 5 barrettes or'),
+('6eme Dan', 1, 'Noire 6 barrettes or'),
+('7eme Dan', 1, 'Noire 7 barrettes or'),
+('8eme Dan', 1, 'Noire 8 barrettes or'),
+('9eme Dan', 1, 'Noire 9 barrettes or'),
+('10eme Dan', 1, 'Noire 10 barrettes or');

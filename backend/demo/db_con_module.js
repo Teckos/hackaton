@@ -1,14 +1,12 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
+exports.myCon = async ()=>{
 
-const con = mysql.createConnection({
-    host: "db",
-    user: "user",
-    password: "secret-pw",
-    database: "hackaton",
-    port: 3306
-});
-
-con.connect((err)=>{
-    if (err) throw err;
-    console.log('Connected!');
-});
+    const con = await mysql.createConnection({
+        host: "db",
+        user: "user",
+        password: "secret-pw",
+        database: "hackaton",
+        port: 3306
+    });
+    return con;
+};

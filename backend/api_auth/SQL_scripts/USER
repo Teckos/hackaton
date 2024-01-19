@@ -1,0 +1,30 @@
+CREATE TABLE hackaton.`user` (
+	id INT auto_increment NOT NULL PRIMARY KEY,
+	username varchar(100) NOT NULL,
+	password varchar(100) NOT NULL
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE user
+ADD COLUMN role varchar(100) DEFAULT 'USER' NOT NULL,
+ADD COLUMN grade varchar(100);
+
+ALTER TABLE hackaton.`user` MODIFY COLUMN `role` ENUM('USER', 'ADMIN') DEFAULT 'USER' NOT NULL;
+
+ALTER TABLE hackaton.`user`
+MODIFY grade INT;
+
+ALTER TABLE hackaton.`user`
+ADD CONSTRAINT fk_user_grade
+FOREIGN KEY (grade)
+REFERENCES hackaton.`grade`(id);
+
+INSERT INTO hackaton.`user` (`username`,`password`) 
+VALUES ('admin', '$2b$10$kauyCbchctKhmWn3SZFQW.z17JVAknaJ5x8IlJVC45kXdEmMUjYuS'),
+	('user', '$2b$10$LfLS2vRC303q9QQdeq6tdeB8BvTKuont5YDQeHAdKE9E9O9Y7dOVO'),
+	('toto','$2b$10$Uw2v9t7fqkQcKVZmjnGCKeKOk5EZXUT5RmBy7MOCGMKJdZPmc0R5.');
+--admin/admin
+--user/user
+--toto/toto
