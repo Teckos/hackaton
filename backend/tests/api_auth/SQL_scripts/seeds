@@ -1,15 +1,12 @@
-CREATE TABLE hackaton.`grade` (
-	id INT auto_increment NOT NULL PRIMARY KEY,
-	name varchar(100) NOT NULL,
-	adult bool NOT NULL DEFAULT false,
-	belt varchar(100) NOT NULL
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_unicode_ci;
+INSERT INTO hackaton.`user` (`username`,`password`) 
+VALUES ('admin', '$2b$10$kauyCbchctKhmWn3SZFQW.z17JVAknaJ5x8IlJVC45kXdEmMUjYuS'),
+	('user', '$2b$10$LfLS2vRC303q9QQdeq6tdeB8BvTKuont5YDQeHAdKE9E9O9Y7dOVO'),
+	('toto','$2b$10$Uw2v9t7fqkQcKVZmjnGCKeKOk5EZXUT5RmBy7MOCGMKJdZPmc0R5.');
+--admin/admin
+--user/user
+--toto/toto
 
-
-INSERT INTO hackaton.`grade` (`name`,`adult`,`belt`) 
+INSERT INTO hackaton.`rank` (`name`,`adult`,`belt`) 
 VALUES 
 ('15eme Keup', 0, 'Blanche'),
 ('14eme Keup', 0, 'Jaune'),

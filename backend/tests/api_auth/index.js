@@ -1,6 +1,6 @@
 const express = require('express');
 const queryModule = require('./db_query_module');
-const prepStatementModule = require("../api/db_prepared_statement_module");
+const prepStatementModule = require("./db_prepared_statement_module");
 const app = express();
 const port = 3000;
 
@@ -78,7 +78,7 @@ app.get('/grade', checkRole(['ADMIN', 'USER']),async (req,res) => {
     const {userId:currentUserId, userRole:currentUserRole} = req.auth;
     console.log('logged in as',currentUserId, currentUserRole);
 
-    const selectAll = "SELECT * FROM grade";
+    const selectAll = "SELECT * FROM hackaton.rank";
     try {
         const result = await queryModule.executeQuery(selectAll);
         res.status(200).json(result);
