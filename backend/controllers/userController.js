@@ -41,7 +41,7 @@ exports.createUser = async (req, res) => {
     }
     //Proceed with checked body
     try {
-        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        const hashedPassword = await bcrypt.hash(password, 10);
         const values = [username, hashedPassword];
         const result = await prepStatementModule.executeQuery(insertQuery, values);
         res.status(200).json(result);
