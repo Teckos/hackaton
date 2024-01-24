@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const prepStatementModule = require("../db/dbPrepStatement");
 const jwt = require('jsonwebtoken');
 const { jwtSecret, saltRounds } = require('../config/authConfig');
+const databaseName = process.env.DB_NAME
 
 exports.login = async (req, res) => {
     //Verify that req.body contains the proper keys and its values are of the proper type.
@@ -11,7 +12,7 @@ exports.login = async (req, res) => {
     }
     //Proceed with checked body
     //Verify if the user exists
-    const userArray = await prepStatementModule.executeQuery('SELECT * FROM user WHERE username = ?', [username]);
+    const userArray = await prepStatementModule.executeQuery(`SELECT * FROM ${databaseName}.user WHERE username = ?`, [username]);
     const user = userArray[0];
     if (!user) {
         return res.status(401).send('Identifiants incorrects');
@@ -32,7 +33,7 @@ exports.login = async (req, res) => {
 
 exports.createUser = async (req, res) => {
     //Prep Statement query
-    const insertQuery = "INSERT INTO user (username, password) VALUES (?, ?)";
+    const insertQuery = `INSERT INTO ${databaseName}.user (username, password) VALUES (?, ?)`;
 
     //Verify that req.body contains the proper keys and its values are of the proper type.
     const { username, password } = req.body;

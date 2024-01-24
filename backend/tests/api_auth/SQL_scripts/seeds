@@ -1,5 +1,5 @@
 INSERT INTO hackaton.`user` (`username`,`password`) 
-VALUES ('admin', '$2b$10$kauyCbchctKhmWn3SZFQW.z17JVAknaJ5x8IlJVC45kXdEmMUjYuS'),
+VALUES ('admin', '$2b$10$kauyCbchctKhmWn3SZFQW.z17JVAknaJ5x8IlJVC45kXdEmMUjYuS', 'ADMIN'),
 	('user', '$2b$10$LfLS2vRC303q9QQdeq6tdeB8BvTKuont5YDQeHAdKE9E9O9Y7dOVO'),
 	('toto','$2b$10$Uw2v9t7fqkQcKVZmjnGCKeKOk5EZXUT5RmBy7MOCGMKJdZPmc0R5.');
 --admin/admin
